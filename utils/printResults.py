@@ -5,12 +5,17 @@ class TreeNode:
         self.right = None
 
 
-def printTreePreorder(cur_node):
+def printTreePreorder(cur_node, path=[]):
 
     if cur_node is None:
-        print('NULL')
+        # print('NULL')
+        path.append('NULL')
         return
 
-    print(cur_node.val)
-    printTreePreorder(cur_node.left)
-    printTreePreorder(cur_node.right)
+    # print(cur_node.val)
+    path.append(cur_node.val)
+    printTreePreorder(cur_node.left, path)
+    printTreePreorder(cur_node.right, path)
+
+    # print(path)
+    return path

@@ -15,24 +15,24 @@ def bstFromPreorder(self, preorder):
 
 	It seems not so difficult but why I think it is difficult?
 	"""
-    root = TreeNode(preorder[0])
+	root = TreeNode(preorder[0])
 
-    def construct_BST(node, val):
+	def construct_BST(node, val):
 
-    	if node is None:
-    		return
+		if node is None:
+			return
 
-    	if val < node.val:
-    		if node.left is None:
-    			node.left = TreeNode(val)
-    		else:
-    			construct_BST(node.left, val)
+		if val < node.val:
+			if node.left is None:
+				node.left = TreeNode(val)
+			else:
+				construct_BST(node.left, val)
 
-    	if val > node.val:
-    		if node.right is None:
-    			node.right = TreeNode(val)
-    		else:
-    			construct_BST(node.right, val)
+		if val > node.val:
+			if node.right is None:
+				node.right = TreeNode(val)
+			else:
+				construct_BST(node.right, val)
 
 
 	for val in preorder[1:]:
