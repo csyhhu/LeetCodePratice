@@ -13,28 +13,42 @@ class Solution:
             for col_idx in range(N):
                 root_idx = row_idx * (4 * N) + col_idx * 4
                 #
-                if row_idx > 0:
-                    self.union(root_idx + 0, root_idx - 4 * N + 2)
-                    # self.union(root_idx + 2, root_idx + 4 * N + 0)
-                # if row_idx < N - 1:
-                #     self.union(root_idx + 2, root_idx + 4 * N + 0)
-
+                # if N-1 >= row_idx > 0:
+                #     self.union(root_idx + 0, root_idx - 4 * N + 2)
+                #     # self.union(root_idx + 2, root_idx + 4 * N + 0)
+                # # if row_idx < N - 1:
+                # #     self.union(root_idx + 2, root_idx + 4 * N + 0)
+                #
                 if col_idx > 0:
                     self.union(root_idx + 3, root_idx - 4 + 1)
 
                 # if col_idx < N - 1:
                 #     self.union(root_idx + 1, root_idx + 4 + 3)
 
-                if grid[row_idx][col_idx] == '\\':
+                if row_idx > 0:
+                    self.union(root_idx + 0, root_idx - 4 * N + 2)
+
+                if row_idx < N - 1:
+                    self.union(root_idx + 2, root_idx + 4 * N + 0)
+
+                # if grid[row_idx][col_idx] in '\\':
+                #     self.union(root_idx + 0, root_idx + 1)
+                #     self.union(root_idx + 2, root_idx + 3)
+                #
+                # if grid[row_idx][col_idx] in '/':
+                #     self.union(root_idx + 1, root_idx + 2)
+                #     self.union(root_idx + 0, root_idx + 3)
+
+                if grid[row_idx][col_idx] != '\\':
+                    self.union(root_idx + 0, root_idx + 3)
+                    self.union(root_idx + 1, root_idx + 2)
+
+                if grid[row_idx][col_idx] !=  '/':
                     self.union(root_idx + 0, root_idx + 1)
                     self.union(root_idx + 2, root_idx + 3)
 
-                if grid[row_idx][col_idx] == '/':
-                    self.union(root_idx + 1, root_idx + 2)
-                    self.union(root_idx + 0, root_idx + 3)
-
-        # return self.n_count
-        return sum(self.parent[i] == i for i in range(N * N * 4) )
+        # return sum(self.parent[i] == i for i in range(N * N * 4) )
+        return self.n_count
 
     def union(self, idx1, idx2):
         idx1 = self.find(idx1)
@@ -44,8 +58,8 @@ class Solution:
         #     self.rank[idx1] += 1
         if idx1 == idx2:
             return
-        else:
-            self.parent[idx2] = idx1
+        # else:
+        self.parent[idx2] = idx1
         self.n_count -= 1
 
     def find(self, idx):
@@ -56,9 +70,11 @@ class Solution:
             return self.parent[idx]
 
 s = Solution()
-inputs = [
-  "//",
-  "/ "
-]
+# inputs = [
+#   "//",
+#   "/ "
+# ]
+
+inputs = ["\\/\\ "," /\\/"," \\/ ","/ / "]
 outputs = s.regionsBySlashes(inputs)
 print(outputs)
