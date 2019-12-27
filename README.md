@@ -15,3 +15,7 @@
 
 ### Binary Search
 - [1011](./Codes/1011)
+
+
+### Stack
+- [*78](./Codes/78)
