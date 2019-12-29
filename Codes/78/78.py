@@ -54,5 +54,5 @@ def subsets(nums):
         results.append(cur)
     return results
 
-# print(combination([1,2,3,4]))
-print(permutation([1,2,3,4]))
+print(combination([1,2,3,4]))
+# print(permutation([1,2,3,4]))

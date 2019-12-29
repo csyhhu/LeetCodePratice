@@ -12,7 +12,7 @@
 - [969](./Codes/969)
 - [238](./Codes/238)
 - [78](./Codes/78): Combination, Permutation by DFS
-
+- [46](./Codes/46): Combination
 ### Binary Search
 - [1011](./Codes/1011)
 
