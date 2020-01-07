@@ -8,14 +8,13 @@ class TreeNode:
 def printTreePreorder(cur_node, path=[]):
 
     if cur_node is None:
-        # print('NULL')
-        path.append('NULL')
+        # path.append('NULL')
+        print('NULL')
         return
 
-    # print(cur_node.val)
+    print(cur_node.val)
     path.append(cur_node.val)
     printTreePreorder(cur_node.left, path)
     printTreePreorder(cur_node.right, path)
 
-    # print(path)
-    return path
+    # return path
