@@ -1,4 +1,4 @@
-def isValidSudoku(board):
+def isValidSudoku_complex(board):
     isValid = True
     # Check row
     n_row, n_col = len(board), len(board[0])
@@ -48,6 +48,9 @@ def isValidSudoku(board):
                 if not isValid:
                     return isValid
     return isValid
+
+def isValidSudoku(board):
+    pass
 
 # inputs = [
 #   ["5","3",".",".","7",".",".",".","."],
