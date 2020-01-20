@@ -19,6 +19,7 @@
 - [238](./Codes/238)
 - [78](./Codes/78): Combination, Permutation by DFS
 - [46](./Codes/46): Combination
+- [17](./Codes/17): Permutation by DFS
 - [287](./Codes/287)
 
 ### Binary Search
@@ -41,3 +42,4 @@
 
 ## Two Pointers
 - [11](./Codes/11)
+- [75](./Codes/75)
