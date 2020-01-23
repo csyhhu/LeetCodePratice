@@ -48,7 +48,7 @@ def numSquares2(n):
             if cur_min_count > cur_count:
                 cur_min_count = cur_count
         min_count.append(cur_min_count)
-        print(min_count)
+        # print(min_count)
     return min_count[n]
 
 inputs = 12
