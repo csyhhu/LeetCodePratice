@@ -12,6 +12,8 @@
 - [338](./Codes/338)
 - [1043](./Codes/1043)
 - [1130](./Codes/1130): dfs + recursive
+- [300](./Codes/300)
+- [139](./Codes/139): dfs + recording
 
 ### Array
 - [442](./Codes/442)
@@ -27,6 +29,7 @@
 - [287](./Codes/287)
 - [215](./Codes/215)
 - [378](./Codes/378)
+- [162](./Codes/162)
 
 ### Stack
 - [*78](./Codes/78)
@@ -43,6 +46,10 @@
 ## Two Pointers
 - [11](./Codes/11)
 - [75](./Codes/75)
+- [904](./Codes/904)
 
 ## Backtracking
 - [131](./Codes/131): dfs
+
+## Graph
+- [207](./Codes/207): dfs, bfs
