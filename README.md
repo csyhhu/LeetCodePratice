@@ -14,6 +14,7 @@
 - [1130](./Codes/1130): dfs + recursive
 - [300](./Codes/300)
 - [139](./Codes/139): dfs + recording
+- [322](./Codes/322)
 
 ### Array
 - [442](./Codes/442)
@@ -23,6 +24,9 @@
 - [46](./Codes/46): Combination
 - [17](./Codes/17): Permutation by DFS
 - [287](./Codes/287)
+- [79](./Codes/79): DFS
+- [55](./Codes/55): Greedy
+- [54](./Codes/54)
 
 ### Binary Search
 - [1011](./Codes/1011)
@@ -30,9 +34,13 @@
 - [215](./Codes/215)
 - [378](./Codes/378)
 - [162](./Codes/162)
+- [34](./Codes/34)
+- [33](./Codes/33)
 
 ### Stack
 - [*78](./Codes/78)
+- [227](./Codes/227)
+- [150](./Codes/150)
 
 ### Linked List
 - [287](./Codes/287)
