@@ -4,6 +4,7 @@
 
 ### String
 - [49](./Codes/49)
+- [179](./Codes/179)
 
 ### Tree
 - [230](./Codes/230)
@@ -15,13 +16,15 @@
 - [300](./Codes/300)
 - [139](./Codes/139): dfs + recording
 - [322](./Codes/322)
+- [5](./Codes/5): Longest Palindromic Substring
 
 ### Array
 - [442](./Codes/442)
 - [969](./Codes/969)
 - [238](./Codes/238)
 - [78](./Codes/78): Combination, Permutation by DFS
-- [46](./Codes/46): Combination
+- [77](./Codes/77): Combination
+- [46](./Codes/46): Permutation
 - [17](./Codes/17): Permutation by DFS
 - [287](./Codes/287)
 - [79](./Codes/79): DFS
