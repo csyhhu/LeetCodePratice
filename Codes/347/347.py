@@ -55,11 +55,13 @@ def topKFrequent(nums, k):
             min_freq = num_freq[num]
 
     # Bucket sort
+    # Put all numbers (with same frequency) in one bucket
     bucket = [[] for _ in range(len(nums))]
     for num, freq in num_freq.items():
-        bucket[freq - min_freq].append(num)
+        bucket[freq - min_freq].append(num) # [1:[5,6], 2:[3,4], 4:[1]]: Number 5&6 appear one time, 3&4 for two times and 1 for 4 times.
 
     results = []
+    # Gather results from high frequency to low, thus we reverse the bucket
     for num_list in bucket[::-1]:
         if len(num_list) != 0:
             for num in num_list:

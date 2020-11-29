@@ -1,6 +1,6 @@
-# LeetCodePratice
+# My LeetCode Pratice
 
-## Classification
+## Category
 
 ### String
 - [49](./Codes/49)
@@ -17,6 +17,7 @@
 - [139](./Codes/139): dfs + recording
 - [322](./Codes/322)
 - [5](./Codes/5): Longest Palindromic Substring
+- [42](./Codes/42)
 
 ### Array
 - [442](./Codes/442)
@@ -51,6 +52,7 @@
 
 ### Heap
 - [215](./Codes/215)
+- [347](./Codes/347)
 
 ### Math
 - [62](./Codes/62)
@@ -59,6 +61,7 @@
 - [11](./Codes/11)
 - [75](./Codes/75)
 - [904](./Codes/904)
+- [42](./Codes/42)
 
 ## Backtracking
 - [131](./Codes/131): dfs
@@ -66,5 +69,18 @@
 ## Graph
 - [207](./Codes/207): dfs, bfs
 
+## Sorting
+- [347](./Codes/347)
+- [692](./Codes/692)
+
 ## Topological Sorting
 - [210](./Codes/210)
+
+## Prefix Sum
+- [1664](./Weekly-Contest/216/5607-Ways-to-Make-a-Fair-Array.py)
+
+## Hash Table
+- [128](./Codes/128)
+
+## Special Data Structure
+- [239](./Codes/239)
