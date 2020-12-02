@@ -14,8 +14,13 @@ def findKthLargest_heap(nums, k):
     return h[0]
 
 
-def findKthLargest(nums, k):
-
+def findKthLargest_old(nums, k):
+    """
+    This implementation is written in Jan, 2020
+    :param nums:
+    :param k:
+    :return:
+    """
     def partition(select_nums):
         pivot = select_nums[0]
         smaller = []
@@ -46,16 +51,57 @@ def findKthLargest(nums, k):
             # cur_k -= len(larger)
 
 
+def findKthLargest(nums, k):
+    """
+    This implementation corresponds to solution 2 in readme
+    :param nums:
+    :param k:
+    :return:
+    """
 
-# inputs = [3,2,1,5,6,4]
-# k = 2
-# print(findKthLargest(inputs, k))
-# inputs = [3,2,3,1,2,4,5,5,6]
-# k = 4
-# print(findKthLargest(inputs, k))
-# inputs = [7,6,5,4,3,2,1]
-# k = 2
-# print(findKthLargest(inputs, k))
+    left = 0
+    right = len(nums) - 1
+
+    def partition(_nums, _left, _right):
+        pivot = _nums[_left]
+        i = _left + 1
+        j = _right
+        while i <= j:
+            if _nums[i] < pivot < _nums[j]:
+                tmp = _nums[i]
+                _nums[i] = _nums[j]
+                _nums[j] = tmp
+                i += 1
+                j -= 1
+            if _nums[i] >= pivot:
+                i += 1
+            if _nums[j] <= pivot:
+                j -= 1
+        _nums[left] = _nums[j]
+        _nums[j] = pivot
+        # print(_nums)
+        # input()
+        return j
+
+    while True:
+        mid = partition(nums, left, right)
+        if mid == k - 1:
+            return nums[mid]
+        # pivot is too large, which rank #mid (< k-1), therefore the result is in right lart
+        elif mid < k - 1:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+inputs = [3,2,1,5,6,4]
+k = 2
+print(findKthLargest(inputs, k))
+inputs = [3,2,3,1,2,4,5,5,6]
+k = 4
+print(findKthLargest(inputs, k))
+inputs = [7,6,5,4,3,2,1]
+k = 2
+print(findKthLargest(inputs, k))
 inputs = [-1,2,0]
 k = 2
 print(findKthLargest(inputs, k))

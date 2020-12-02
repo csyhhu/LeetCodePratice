@@ -18,6 +18,8 @@
 - [322](./Codes/322)
 - [5](./Codes/5): Longest Palindromic Substring
 - [42](./Codes/42)
+- [474](./Codes/474)
+- [1143](./Codes/1143): Longest Common Subsequence
 
 ### Array
 - [442](./Codes/442)
@@ -33,8 +35,12 @@
 - [54](./Codes/54)
 - [15](./Codes/15)
 
+### Interval
+- [218](./Codes/218)
+
 ## DFS
 - [329](./Codes/329) 
+- [212](./Codes/212): Trie
 
 ### Binary Search
 - [1011](./Codes/1011)
@@ -67,6 +73,7 @@
 - [75](./Codes/75)
 - [904](./Codes/904)
 - [42](./Codes/42)
+- [76](./Codes/76)
 
 ## Backtracking
 - [131](./Codes/131): dfs
