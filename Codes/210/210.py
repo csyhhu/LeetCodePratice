@@ -45,6 +45,12 @@ def findOrder(numCourses, prerequisites):
 
 
 def findOrder2(numCourses, prerequisites):
+    """
+    Topological Sort
+    :param numCourses:
+    :param prerequisites:
+    :return:
+    """
     from collections import defaultdict
     indegree = defaultdict(int)
     for i in range(numCourses):
