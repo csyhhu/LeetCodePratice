@@ -34,6 +34,7 @@
 - [55](./Codes/55): Greedy
 - [54](./Codes/54)
 - [15](./Codes/15)
+- [1109](./Codes/1109): Difference
 
 ### Interval
 - [218](./Codes/218)
@@ -41,6 +42,10 @@
 ## DFS
 - [329](./Codes/329) 
 - [212](./Codes/212): Trie
+- [*39](./Codes/39): Combination
+
+## BFS
+- [721](./Codes/721)
 
 ### Binary Search
 - [1011](./Codes/1011)
