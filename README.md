@@ -96,6 +96,7 @@
 ## Prefix Sum
 - [1664](./Weekly-Contest/216/5607-Ways-to-Make-a-Fair-Array.py)
 - [304](./Codes/304)
+- [1248](./Codes/1248)
 
 ## Hash Table
 - [128](./Codes/128)
