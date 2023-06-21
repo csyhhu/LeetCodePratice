@@ -40,6 +40,7 @@
 - [54](./Codes/54)
 - [15](./Codes/15)
 - [1109](./Codes/1109): Difference
+- [41](./Codes/41): First Missing Positive
 
 ### Interval
 - [218](./Codes/218)
