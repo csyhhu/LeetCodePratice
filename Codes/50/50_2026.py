@@ -50,7 +50,30 @@ def myPow(x: float, n: int) -> float:
         return partialPow(x, n, dp)
     else:
         return 1 / partialPow(x, n, dp)
-    
+
+
+def myPow_wo_dp(x, n):
+    if n == 1:
+        return x
+    if n == 0 or x == 0:
+        return 1
+    if n % 2 == 0:
+        return myPow_wo_dp(x, n // 2) * myPow_wo_dp(x, n // 2)
+    else:
+        return myPow_wo_dp(x, n // 2) * myPow_wo_dp(x, n // 2) * x
+
+
+def myPow_efficiency(x, n):
+    if n == 1:
+        return x
+    if n == 0 or x == 0:
+        return 1
+    value = myPow_efficiency(x, n // 2)
+    if n % 2 == 1:
+        return value * value * x
+    else:
+        return value * value
+
 
 
 # Test cases
