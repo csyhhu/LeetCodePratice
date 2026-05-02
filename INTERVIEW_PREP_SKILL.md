@@ -2,7 +2,7 @@
 This is an instruction for guding me to go through leetcode pratice for upcoming interview.
 
 # Preliminary
-You should first go through the repository, being aware of the leetcode questions that I have attempted and finished, categoring the questions and finally generating a `INTERVIEW_PREP_2026.md` that could catch up with my current situation for an interview and where I could improve.
+You should first go through the repository `Codes/`, being aware of the leetcode questions that I have attempted and finished, categoring the questions and finally generating a `INTERVIEW_PREP_2026.md` that could catch up with my current situation for an interview and where I could improve.
 
 If the `INTERVIEW_PREP_2026.md` is finished. Skip the preliminary step.
 
