@@ -24,37 +24,7 @@ Constraints:
 
 
 def canPartition(nums):
-    """
-    Determine if array can be partitioned into two equal sum subsets.
-    
-    Core Idea: Can we find a subset with sum = total_sum / 2?
-    This is a 0/1 Knapsack problem.
-    
-    Hint:
-    - Check if total sum is odd
-    - Use DP: dp[i] = True means we can make sum equal to i
-    - Iterate through nums and update dp backwards
-    """
-    total_sum = sum(nums)
-    
-    # 🔴 问题 1：需要检查总和的奇偶性
-    if total_sum % 2 != 0:
-        return False
-    
-    target = total_sum // 2
-    
-    # 🔴 问题 2：DP 数组大小应该是 target + 1，不是 total_sum + 1
-    dp = [False] * (target + 1)
-    dp[0] = True  # 基础情况：能凑出 0（不选任何元素）
-    
-    # 🔴 问题 3：不需要提前初始化 dp[num]，在主循环中会处理
-    for num in nums:
-        # 从后向前遍历，避免同一个数字用两次
-        for i in range(target, num - 1, -1):
-            dp[i] = dp[i] or dp[i - num]
-    # print(dp)
-    return dp[target]
-
+    pass
 
 
 # Test cases

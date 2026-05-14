@@ -31,97 +31,122 @@ Constraints:
 """
 
 
-from tkinter import N
-
-
 def isInterleave(s1: str, s2: str, s3: str) -> bool:
-    # dp[i][j] = dp[i-1]][j] if s1[i] = s3[i+j]
-    n1 = len(s1)
-    n2 = len(s2)
-    n3 = len(s3)
+    # dp[i][j]: Fessibility when getting length i from s1 and length j from s2, leading to length i+j in s3
+    # dp[i][j] = dp[i][j-1] if s3[i+j-1] == s2[j-1] or dp[i-1][j] if s3[i+j-1] == s1[i-1]
+    n1, n2, n3 = len(s1), len(s2), len(s3)
+    dp = [[False for _ in range(n2 + 1)] for _ in range(n1 + 1)]
+    if n1 == 0:
+        return s3 == s2
+    elif n2 == 0:
+        return s3 == s1
+    elif n1 == 0 and n2 == 0:
+        return s3 == s1
     if n1 + n2 != n3:
         return False
 
-    dp = [[False] * (n2 + 1) for _ in range(n1 + 1)]
-    dp[0][0] = True
-    for i in range(1, n1 + 1):
-        if s1[i-1] == s3[i-1]:
-            dp[i][0] = True & dp[i-1][0]
-        else:
-            dp[i][0] = False
-    for j in range(1, n2 + 1):
-        if s2[j-1] == s3[j-1]:
-            dp[0][j] = True & dp[0][j-1]
-        else:
-            dp[0][j] = False
+    # dp[0][0] = True
+    # dp[1][0] = True if s1[0] == s3[0] else False
+    # dp[0][1] = True if s2[0] == s3[0] else False
     for i in range(1, n1+1):
-        for j in range(1, n2+1):
-            dp[i][j] = dp[i-1][j] and s1[i-1] == s3[i+j-1] or dp[i][j-1] and s2[j-1] == s3[i+j-1]
+        if s3[i-1] == s1[i-1]:
+            dp[i][0] = True
+        else:
+            break
+    for j in range(1, n2+1):
+        if s3[j-1] == s2[j-1]:
+            dp[0][j] = True
+        else:
+            break
+    # print(dp)
+    # """
+    for i in range(1, n1 + 1):
+        for j in range(1, n2 + 1):
+            print(i+j-1, i-1, j-1)
+            if (s3[i+j-1] == s2[j-1]) or (s3[i+j-1] == s1[i-1]):
+                dp[i][j] = dp[i][j-1] or dp[i-1][j]
+            if s3[i+j-1] == s2[j-1]:
+                dp[i][j] = dp[i][j-1]
+            elif s3[i+j-1] == s1[i-1]:
+                dp[i][j] = dp[i-1][j]
+    # """
+    """
+    for length in range(1, n3 + 1):
+        for i in range(1, n1 + 1):
+            j = length - i
+            if j <= 0 or j > n2:
+                continue
+            print(length - 1, i-1, j-1)
+            if (s3[length - 1] == s2[j-1]) and (s3[length - 1] == s1[i-1]):
+                dp[i][j] = dp[i][j-1] or dp[i-1][j]
+            elif s3[length - 1] == s2[j-1]:
+                dp[i][j] = dp[i][j-1]
+            elif s3[length - 1] == s1[i-1]:
+                dp[i][j] = dp[i-1][j]
+    """
+    # print(dp)
     return dp[n1][n2]
-    """
-    if n1 > 0 and s1[0] == s3[0]:
-        dp[1][0] = True
-    if n2 > 0 and s2[0] == s3[0]:
-        dp[0][1] = True
-    for i in range(1, n1):
-        for j in range(1, n2):
-            dp[i][j] = (s1[i] == s3[i+j] and dp[i-1][j]) or (s2[j] == s3[i+j] and dp[i][j-1])
-    return dp[n1-1][n2-1]
-    """
 
 
 # Test cases
 if __name__ == "__main__":
     test_cases = [
+        # {
+        #     "s1": "aabcc",
+        #     "s2": "dbbca",
+        #     "s3": "aadbbcbcac",
+        #     "expected": True,
+        #     "description": "Standard interleaving",
+        # },
+        # {
+        #     "s1": "aabcc",
+        #     "s2": "dbbca",
+        #     "s3": "aadbbbaccc",
+        #     "expected": False,
+        #     "description": "Not a valid interleaving",
+        # },
+        # {
+        #     "s1": "",
+        #     "s2": "",
+        #     "s3": "",
+        #     "expected": True,
+        #     "description": "All empty strings",
+        # },
+        # {
+        #     "s1": "a",
+        #     "s2": "b",
+        #     "s3": "ab",
+        #     "expected": True,
+        #     "description": "Simple case s1+s2",
+        # },
+        # {
+        #     "s1": "a",
+        #     "s2": "b",
+        #     "s3": "ba",
+        #     "expected": True,
+        #     "description": "Simple case s2+s1",
+        # },
+        # {
+        #     "s1": "a",
+        #     "s2": "b",
+        #     "s3": "abc",
+        #     "expected": False,
+        #     "description": "Length mismatch",
+        # },
+        # {
+        #     "s1": "ab",
+        #     "s2": "bc",
+        #     "s3": "bbac",
+        #     "expected": False,
+        #     "description": "Tricky overlapping characters",
+        # },
         {
-            "s1": "aabcc",
-            "s2": "dbbca",
-            "s3": "aadbbcbcac",
-            "expected": True,
-            "description": "Standard interleaving",
-        },
-        {
-            "s1": "aabcc",
-            "s2": "dbbca",
-            "s3": "aadbbbaccc",
-            "expected": False,
-            "description": "Not a valid interleaving",
-        },
-        {
-            "s1": "",
-            "s2": "",
-            "s3": "",
-            "expected": True,
-            "description": "All empty strings",
-        },
-        {
-            "s1": "a",
+            "s1": "db",
             "s2": "b",
-            "s3": "ab",
-            "expected": True,
-            "description": "Simple case s1+s2",
-        },
-        {
-            "s1": "a",
-            "s2": "b",
-            "s3": "ba",
-            "expected": True,
-            "description": "Simple case s2+s1",
-        },
-        {
-            "s1": "a",
-            "s2": "b",
-            "s3": "abc",
+            "s3": "cbb",
             "expected": False,
-            "description": "Length mismatch",
-        },
-        {
-            "s1": "ab",
-            "s2": "bc",
-            "s3": "bbac",
-            "expected": False,
-            "description": "Tricky overlapping characters",
-        },
+            "description": "Test case from LC",
+        }
     ]
 
     print("=" * 60)
