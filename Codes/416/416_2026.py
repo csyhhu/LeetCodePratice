@@ -23,8 +23,45 @@ Constraints:
 """
 
 
+def canPartition_1d(nums):
+    # dp[i] = or(dp[i-num]): whether i can be reached
+    n = len(nums)
+    num_sum = sum(nums)
+    if num_sum % 2 == 1:
+        return False
+    target = num_sum // 2
+    dp = [False for _ in range(target + 1)]
+    dp[0] = True
+    """
+    for t in range(1, target + 1):
+        for num in nums[::-1]:
+            dp[t] = dp[t] or dp[t-num]
+    """
+    for num in nums:
+        for t in range(target, num-1, -1):
+            dp[t] = dp[t] or dp[t-num]
+    # print(dp)
+    return dp[target]
+
+
 def canPartition(nums):
-    pass
+    # dp[i][j] = dp[i-1][j-nums[i]] or dp[i-1][j] Select i items to reach j
+    n = len(nums)
+    num_sum = sum(nums)
+    if num_sum % 2 == 1:
+        return False
+    target = num_sum // 2
+    dp = [[False for _ in range(target + 1)] for _ in range(n + 1)]
+    dp[0][0] = True
+    # for i in range(n + 1):
+    #     dp[i][0] = True
+    # for j in range(target + 1):
+    #     dp[0][j] = True
+    for i in range(1, n + 1):
+        for j in range(1, target + 1):
+            dp[i][j] = dp[i-1][j] or (j >= nums[i-1] and dp[i-1][j-nums[i-1]])
+
+    return dp[n][target]
 
 
 # Test cases

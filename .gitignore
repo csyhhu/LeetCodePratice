@@ -115,3 +115,5 @@ behavior/
 # Encrypted backup artifacts: commit only encrypted bundles
 # .secure_backups/*
 # !.secure_backups/*.enc
+
+.vscode/
