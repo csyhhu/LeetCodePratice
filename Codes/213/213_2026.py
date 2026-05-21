@@ -58,7 +58,7 @@ def rob(nums):
             # for j in range(2, i+1):
             #     dp[i] = max(dp[i], dp[i-j] + subNums[i])
             dp[i] = max(dp[i-1], dp[i-2] + subNums[i])
-        print(dp)
+        # print(dp)
         return dp[subN-1]
 
     return max(subRob(nums[:-1]), subRob(nums[1:]))
